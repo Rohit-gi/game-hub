@@ -8,6 +8,7 @@ import {
 } from "react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
+import { Game } from "../hooks/useGames";
 
 const GameGrid = () => {
   const { games, error } = useGames();
@@ -15,7 +16,11 @@ const GameGrid = () => {
   return (
     <>
       {error && <Text>{error}</Text>}
-      <SimpleGrid columns={{sm:1, md:2, lg:3, xl: 5}} padding='10px' spacing={10}>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+        padding="10px"
+        spacing={10}
+      >
         {games.map(
           (game: {
             id: Key | null | undefined;
